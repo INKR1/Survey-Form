@@ -32,7 +32,7 @@ Task is taken from FreeCodeCamp Responsive Web Design Project - [_"Build a Surve
 > - User Story #15: Inside the form element, I am presented with a textarea at the end for additional comments.
 > - User Story #16: Inside the form element, I am presented with a button with id="submit" to submit all my inputs.
 
-5. Remember to use Read-Search-Ask if you get stuck.
+3. Remember to use Read-Search-Ask if you get stuck.
 
 ### Live view
 
