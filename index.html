@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      h1 {
+        font-size: 3.5rem;
+        margin: 0;
+        font-family: fantasy;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .clue {
+        margin-left: 0.25rem;
+        font-size: 0.9rem;
+        margin-top: 0;
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+      }
+      .description {
+        font-style: italic;
+        font-weight: 200;
+        text-shadow: 1px 1px 1px rgb(0 0 0 / 40%);
+      }
+      body {
+        font-family: cursive;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.4;
+        margin: 0;
+        display: block;
+        color: rgba(255, 232, 129, 0.781);
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        background-image: linear-gradient(
+            115deg,
+            rgba(183, 133, 173, 0.63),
+            rgba(133, 138, 183, 0.63)
+          ),
+          url(https://images.unsplash.com/photo-1467646208740-18124b37eb58?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHN0YXJyeSUyMGhhcnJ5JTIwcG90dGVyYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      :root {
+        --color-white: #f3f3f3;
+        --color-darkblue: #1b1b32;
+        --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+        --color-green: #0500079c;
+      }
+      @media (min-width: 576px) {
+        .container {
+          max-width: 540px;
+        }
+      }
+      .container {
+        width: 100%;
+        margin: 3.125rem auto 0 auto;
+      }
+      .header {
+        padding: 0 0.625rem;
+        margin-bottom: 1rem;
+      }
+      header {
+        display: block;
+      }
+      @media (min-width: 480px) {
+        form {
+          background: var(--color-darkblue-alpha);
+          padding: 2.5rem;
+          display: block;
+          border-radius: 0.25rem;
+          margin-top: 0em;
+        }
+      }
+      .form-group {
+        margin: 0 auto 1.25rem auto;
+        padding: 0.25rem;
+      }
+      label {
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+        margin-bottom: 0.9rem;
+        cursor: default;
+      }
+      .form-control {
+        display: block;
+        width: 100%;
+        height: 2.37rem;
+        padding: 0.375rem 0.75rem;
+        color: #495057;
+        background-color: rgb(241, 230, 255);
+        background-clip: padding-box;
+        border: 1 px solid #afb1ff;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+      .input-textarea {
+        min-height: 120px;
+        width: 100%;
+        padding: 0.7rem;
+        resize: vertical;
+        background-color: rgb(241, 230, 255);
+      }
+      input,
+      button,
+      select,
+      textarea {
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      button {
+        border: none;
+      }
+      .submit-button {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background: var(--color-green);
+        color: inherit;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 id="title" class="text-center">
+          Wizard School!
+        </h1>
+        <p id="description" class="description text-center">
+          Become the best wizard in the world!
+        </p>
+      </header>
+      <form id="survey-form">
+        <div class="form-group">
+          <label id="name-label" for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label id="email-label" for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter your Email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label id="number-label" for="number">Age</label>
+          <input
+            type="number"
+            name="age"
+            id="number"
+            min="16"
+            max="99"
+            class="form-control"
+            placeholder="Age"
+          />
+        </div>
+        <div class="form-group">
+          <p>What type of person are you?</p>
+          <select name="role" id="dropdown" class="form-control" required>
+            <option disabled selected value>Select option</option>
+            <option value="gryffindor"
+              >Have a tendency to act first and think later</option
+            >
+            <option value="slytherin"
+              >Always one step ahead, thinks reputation is important</option
+            >
+            <option value="ravenclaw"
+              >Analyses everything, not afraid to be an individual</option
+            >
+            <option value="hufflepuff"
+              >Has a strong moral compass, always works hard</option
+            >
+          </select>
+        </div>
+        <div class="form-group">
+          <p>What would you take to Hogwarts?</p>
+          <label>
+            <input
+              name="user-choise"
+              value="pet"
+              type="radio"
+              class="input-radio"
+              checked
+            />
+            Pet
+          </label>
+          <label>
+            <input
+              name="user-choise"
+              value="board-games"
+              type="radio"
+              class="input-radio"
+              checked
+            />
+            Board games
+          </label>
+          <label>
+            <input
+              name="user-choise"
+              value="phone"
+              type="radio"
+              class="input-radio"
+              checked
+            />
+            Phone
+          </label>
+          <label>
+            <input
+              name="user-choise"
+              value="not-sure"
+              type="radio"
+              class="input-radio"
+              checked
+            />
+            Not sure
+          </label>
+        </div>
+        <div class="form-group">
+          <p>What do you like about Hogwarts?</p>
+          <select name="mostLike" id="most-like" class="form-control" required>
+            <option disabled selected value>Select an option</option>
+            <option value="magic">Magic</option>
+            <option value="uniforms">Uniforms</option>
+            <option value="books">Books</option>
+            <option value="animals">Animals</option>
+            <option value="harryPotter">Harry Potter</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <p>
+            What would you do in a world full of magic?
+            <span class="clue">(Check 3 options)</span>
+          </p>
+          <label>
+            <input
+              name="prefer"
+              value="dont-know-my-brain-exploding"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Don't know, my brain is exploding
+          </label>
+          <label>
+            <input
+              name="prefer"
+              value="i-would-fly"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            I would fly
+          </label>
+          <label>
+            <input
+              name="prefer"
+              value="defeat-lord-voldemort"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Defeat Lord Voldemort
+          </label>
+          <label>
+            <input
+              name="prefer"
+              value="buy-the-best-magic-wand"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Buy the best magic wand
+          </label>
+          <label>
+            <input
+              name="prefer"
+              value="make-potions"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Make potions
+          </label>
+          <label>
+            <input
+              name="prefer"
+              value="learn-magic"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Learn magic
+          </label>
+        </div>
+        <div class="form-group">
+          <p>Why would you like to study in Hogwarts?</p>
+          <textarea
+            name="comment"
+            id="comments"
+            class="input-textarea"
+            placeholder="Enter your comment here..."
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" id="submit" class="submit-button">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+  <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+</html>
